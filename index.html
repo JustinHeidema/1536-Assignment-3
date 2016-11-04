@@ -4,7 +4,7 @@
     <title>House</title> 
     <meta charset="utf-8"> 
 </head> 
-<body onload="nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawLeftWindow(); drawRightWindow(); drawDoorHandle(); drawRoof(); "> 
+<body onload="nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop(); drawChimneyInside();"> 
     <canvas id='myDrawing' width='500' height='500'></canvas>
     <script>
         
@@ -30,6 +30,8 @@
             c2.lineTo(135, 371);
             c2.closePath();
             c2.fill();
+            c2.strokeStyle = '#253041';
+            c2.stroke();
         }
 
         function drawHouseSide() {
@@ -43,6 +45,8 @@
             c2.lineTo(295, 250);
             c2.closePath();
             c2.fill();
+            c2.strokeStyle = '#253041';
+            c2.stroke();
         }
         
         function drawDoor() {
@@ -71,6 +75,9 @@
             c2.lineTo(150, 285);
             c2.closePath();
             c2.fill();
+            c2.lineWidth = 3;
+            c2.strokeStyle = '#96562a';
+            c2.stroke();
         }
         
         function drawRightWindow() {
@@ -85,15 +92,18 @@
             c2.lineTo(220, 290);
             c2.closePath();
             c2.fill();
+            c2.lineWidth = 3;
+            c2.strokeStyle = '#96562a';
+            c2.stroke();
         }
         
-        function drawDoorHandle() {
+        function drawMoon() {
             
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
             c2.fillStyle = '';
             c2.beginPath();
-            c2.arc(100,75,50,0,2*Math.PI);
+            c2.arc(100,75,40,0,2*Math.PI);
             c2.fill();
         }
         
@@ -113,13 +123,113 @@
             c2.fillStyle = '#54425c';
             c2.beginPath();
             c2.moveTo(195, 150);
-            c2.lineTo(295, 250);
-            c2.lineTo(360, 200);
-            c2.lineTo(290, 115);
+            c2.lineTo(300, 257);
+            c2.lineTo(367, 207);
+            c2.lineTo(285, 115);
             c2.closePath();
             c2.fill();
+            c2.lineWidth = 2;
+            c2.strokeStyle = '#3c3146';
+            c2.stroke();
+   
+        }
+        function drawRoofFront() {
             
-          
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#54425c';
+            c2.beginPath();
+            c2.moveTo(195, 150);
+            c2.lineTo(300, 257);
+            c2.lineTo(295, 260);
+            c2.lineTo(195, 160);
+            c2.closePath();
+            c2.fill();
+            c2.lineWidth = 2;
+            c2.strokeStyle = '#3c3146';
+            c2.stroke();
+        }
+        function drawRoofFront2() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#54425c';
+            c2.beginPath();
+            c2.moveTo(195, 150);
+            c2.lineTo(116, 221);
+            c2.lineTo(116, 231);
+            c2.lineTo(195, 160);
+            c2.closePath();
+            c2.fill(); 
+            c2.strokeStyle = '#3c3146';
+            c2.stroke();
+        }
+        function drawDoorHandle() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#ada711';
+            c2.beginPath();
+            c2.arc(213,358,2,0,2*Math.PI);
+            c2.fill();
+
+        }
+        
+        function drawChimneyFront() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#5b729a';
+            c2.beginPath();
+            c2.moveTo(280, 200);
+            c2.lineTo(300, 190);
+            c2.lineTo(300, 160);
+            c2.lineTo(280, 170);
+            c2.closePath();
+            c2.fill();
+        }
+        
+        function drawChimneySide() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#5b729a';
+            c2.beginPath();
+            c2.moveTo(280, 200);
+            c2.lineTo(280, 170);
+            c2.lineTo(265, 160);
+            c2.lineTo(265, 190);
+            c2.closePath();
+            c2.fill();
+        }
+        
+        function drawChimneyTop() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#3c3146';
+            c2.beginPath();
+            c2.moveTo(280, 185);
+            c2.lineTo(308, 165);
+            c2.lineTo(280, 148);
+            c2.lineTo(255, 165);
+            c2.closePath();
+            c2.fill();
+            c2.lineWidth = .5;
+            c2.strokeStyle = 'black';
+            c2.stroke();
+        }
+        
+        function drawChimneyInside() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#5b729a';
+            c2.beginPath();
+            c2.moveTo(280, 170);
+            c2.lineTo(290, 165);
+            c2.lineTo(280, 160);
+            c2.lineTo(272, 165);
+            c2.closePath();
+            c2.fill();
+            c2.lineWidth = .5;
+            c2.strokeStyle = 'black';
+            c2.stroke();
+            
         }
     </script>
 </body>
