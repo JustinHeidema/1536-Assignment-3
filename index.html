@@ -4,7 +4,7 @@
     <title>House</title> 
     <meta charset="utf-8"> 
 </head> 
-<body onload="nightSky(); drawHouseFront();"> 
+<body onload="nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawLeftWindow(); drawRightWindow(); drawDoorHandle(); drawRoof(); "> 
     <canvas id='myDrawing' width='500' height='500'></canvas>
     <script>
         
@@ -21,19 +21,106 @@
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
             
-            c2.fillStyle = 'gray';
+            c2.fillStyle = '#5b729a';
             c2.beginPath();
             c2.moveTo(298, 400);
             c2.lineTo(295, 250);
-            c2.lineTo(187, 70);
-            c2.lineTo(95, 151);
-            c2.lineTo(105, 371);
+            c2.lineTo(195, 150);
+            c2.lineTo(120, 220);
+            c2.lineTo(135, 371);
             c2.closePath();
             c2.fill();
         }
 
-
-
+        function drawHouseSide() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#5b729a';
+            c2.beginPath();
+            c2.moveTo(298, 400);
+            c2.lineTo(360, 340);
+            c2.lineTo(360, 200);
+            c2.lineTo(295, 250);
+            c2.closePath();
+            c2.fill();
+        }
+        
+        function drawDoor() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            
+            c2.fillStyle = '#96562a';
+            c2.beginPath();
+            c2.moveTo(220, 385);
+            c2.lineTo(220, 333);
+            c2.lineTo(190, 330);
+            c2.lineTo(190, 380);
+            c2.closePath();
+            c2.fill();
+        }
+        
+        function drawLeftWindow() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            
+            c2.fillStyle = '#e8ea5c';
+            c2.beginPath();
+            c2.moveTo(180, 288);
+            c2.lineTo(180, 250);
+            c2.lineTo(150, 248);
+            c2.lineTo(150, 285);
+            c2.closePath();
+            c2.fill();
+        }
+        
+        function drawRightWindow() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            
+            c2.fillStyle = '#e8ea5c';
+            c2.beginPath();
+            c2.moveTo(250, 293);
+            c2.lineTo(250, 255);
+            c2.lineTo(220, 253);
+            c2.lineTo(220, 290);
+            c2.closePath();
+            c2.fill();
+        }
+        
+        function drawDoorHandle() {
+            
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '';
+            c2.beginPath();
+            c2.arc(100,75,50,0,2*Math.PI);
+            c2.fill();
+        }
+        
+        function drawGrass() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');    
+            
+            c2.fillStyle = '#087c0b';
+            c2.fillRect(0, 320, 500, 180);
+                        
+        }
+        
+        function drawRoof() {
+            
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#54425c';
+            c2.beginPath();
+            c2.moveTo(195, 150);
+            c2.lineTo(295, 250);
+            c2.lineTo(360, 200);
+            c2.lineTo(290, 115);
+            c2.closePath();
+            c2.fill();
+            
+          
+        }
     </script>
 </body>
 </html>
