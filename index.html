@@ -1,26 +1,66 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <title>House</title> 
-    <meta charset="utf-8"> 
-</head> 
-<body onload="nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop(); drawChimneyInside();"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>House</title>
+    <meta charset="utf-8">
+</head>
+<body onload="nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop(); drawChimneyInside(); drawSmoke(); animateSmoke()">
     <canvas id='myDrawing' width='500' height='500'></canvas>
     <script>
-        
+
+        var colorIn = 255;
+        var opacity = 1.0;
+        var xPosition = 200;
+        var yPosition = 200;
+        var radius = 100;
+
+
+
+        function drawSmoke() {
+          //var canvas = document.getElementById("myDrawing");
+          //var c2 = canvas.getContext('2d');
+          var interval1 = setInterval(function() {animateSmoke()}, 50);
+
+        }
+
+      function animateSmoke() {
+
+        var canvas = document.getElementById("myDrawing");
+        var c2 = canvas.getContext('2d');
+        c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
+        c2.beginPath();
+        //X, Y, r,
+
+        c2.arc(xPosition,yPosition,radius,0,2*Math.PI);
+        c2.fill();
+        c2.closePath();
+
+
+        colorIn -= 10;
+        //xPosition;
+        yPosition += 5;
+        opacity -= 0.05;
+        drawSmoke = null;
+
+
+
+
+      }
+
+
         function nightSky() {
             var canvas = document.getElementById("myDrawing");
-            var c2 = canvas.getContext('2d');    
-            
+            var c2 = canvas.getContext('2d');
+
             c2.fillStyle = 'black';
             c2.fillRect(0, 0, 500, 320);
         }
-        
+
         function drawHouseFront() {
-            
+
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
-            
+
             c2.fillStyle = '#5b729a';
             c2.beginPath();
             c2.moveTo(298, 400);
@@ -48,11 +88,11 @@
             c2.strokeStyle = '#253041';
             c2.stroke();
         }
-        
+
         function drawDoor() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
-            
+
             c2.fillStyle = '#96562a';
             c2.beginPath();
             c2.moveTo(220, 385);
@@ -62,11 +102,11 @@
             c2.closePath();
             c2.fill();
         }
-        
+
         function drawLeftWindow() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
-            
+
             c2.fillStyle = '#e8ea5c';
             c2.beginPath();
             c2.moveTo(180, 288);
@@ -79,11 +119,11 @@
             c2.strokeStyle = '#96562a';
             c2.stroke();
         }
-        
+
         function drawRightWindow() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
-            
+
             c2.fillStyle = '#e8ea5c';
             c2.beginPath();
             c2.moveTo(250, 293);
@@ -96,9 +136,9 @@
             c2.strokeStyle = '#96562a';
             c2.stroke();
         }
-        
+
         function drawMoon() {
-            
+
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
             c2.fillStyle = '';
@@ -106,18 +146,18 @@
             c2.arc(100,75,40,0,2*Math.PI);
             c2.fill();
         }
-        
+
         function drawGrass() {
             var canvas = document.getElementById("myDrawing");
-            var c2 = canvas.getContext('2d');    
-            
+            var c2 = canvas.getContext('2d');
+
             c2.fillStyle = '#087c0b';
             c2.fillRect(0, 320, 500, 180);
-                        
+
         }
-        
+
         function drawRoof() {
-            
+
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
             c2.fillStyle = '#54425c';
@@ -131,10 +171,10 @@
             c2.lineWidth = 2;
             c2.strokeStyle = '#3c3146';
             c2.stroke();
-   
+
         }
         function drawRoofFront() {
-            
+
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
             c2.fillStyle = '#54425c';
@@ -159,7 +199,7 @@
             c2.lineTo(116, 231);
             c2.lineTo(195, 160);
             c2.closePath();
-            c2.fill(); 
+            c2.fill();
             c2.strokeStyle = '#3c3146';
             c2.stroke();
         }
@@ -172,7 +212,7 @@
             c2.fill();
 
         }
-        
+
         function drawChimneyFront() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
@@ -185,7 +225,7 @@
             c2.closePath();
             c2.fill();
         }
-        
+
         function drawChimneySide() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
@@ -198,7 +238,7 @@
             c2.closePath();
             c2.fill();
         }
-        
+
         function drawChimneyTop() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
@@ -214,7 +254,7 @@
             c2.strokeStyle = 'black';
             c2.stroke();
         }
-        
+
         function drawChimneyInside() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
@@ -229,7 +269,7 @@
             c2.lineWidth = .5;
             c2.strokeStyle = 'black';
             c2.stroke();
-            
+
         }
     </script>
 </body>
