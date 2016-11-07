@@ -19,9 +19,10 @@
         //function drawSmoke() {
           //var canvas = document.getElementById("myDrawing");
           //var c2 = canvas.getContext('2d');
-          var interval1 = setInterval(function() {animateSmoke()}, 500);
+          var interval1 = setInterval(function() {drawScene(); animateSmoke()}, 50);
 
         //}
+
 
       function animateSmoke() {
 
@@ -48,6 +49,10 @@
 
       }
 
+      function drawScene() {
+          nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
+          drawChimneyInside();
+      }
 
         function nightSky() {
             var canvas = document.getElementById("myDrawing");
