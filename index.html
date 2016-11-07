@@ -12,16 +12,16 @@
         var opacity = 1.0;
         var xPosition = 200;
         var yPosition = 200;
-        var radius = 100;
+        var radius = 3;
 
 
 
-        function drawSmoke() {
+        //function drawSmoke() {
           //var canvas = document.getElementById("myDrawing");
           //var c2 = canvas.getContext('2d');
-          var interval1 = setInterval(function() {animateSmoke()}, 50);
+          var interval1 = setInterval(function() {animateSmoke()}, 500);
 
-        }
+        //}
 
       function animateSmoke() {
 
@@ -38,9 +38,10 @@
 
         colorIn -= 10;
         //xPosition;
-        yPosition += 5;
-        opacity -= 0.05;
+        yPosition += 25;
+        opacity -= 0.1;
         drawSmoke = null;
+        radius += 3;
 
 
 
