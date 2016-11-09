@@ -1,10 +1,18 @@
 html {
   background-color: teal;
-  width: 90%;
-  height: 90%;
 }
 
 #house {
   text-align: center;
   margin-top: 100px;
+}
+
+header {
+}
+footer {
+  background-color: teal;
+}
+
+ul li {
+  list-style-type: none;
 }
