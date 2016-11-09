@@ -22,26 +22,62 @@
         
         
          
+        var smokeArray = [];
+        var interval2 = setInterval(function() {})
         
+        
+        
+        function smokeObject() {
+            var smoke = {
+            x : 280,
+            y : 160
+            }
+            smokeArray.push(smoke);
+        }
+        
+        function smokeIterator() {
+            for (i = 0; i < smokeArray.length; i++) {
+                
+                smokeArray[i].y -= 10;
+                var canvas = document.getElementById("myDrawing");
+                var c2 = canvas.getContext('2d');
+                c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
+                c2.beginPath();
+                c2.arc(smokeArray[i].x, smokeArray[i].y, radius, 0, 2*Math.PI);
+                c2.fill();
+                c2.closePath();
+                colorIn -= 1;
+                opacity -= .0000001;
+                drawSmoke = null;
+                radius += .0002;
 
+            }
+        }
+        
+        function animateSmoke() {
+            
+            
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
+            c2.beginPath();
+            //X, Y, r,
+           
+      }
 
         //function drawSmoke() {
           //var canvas = document.getElementById("myDrawing");
           //var c2 = canvas.getContext('2d');
-          var interval1 = setInterval(function() {drawScene(); smokeLots(); drawSecondSmoke(); drawThirdSmoke();}, 50);
+          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 50);
         
         //}
-
-        function smokeLots(){
+        
+        function makeSmoke(){
             for (i = 0; i < numSmoke; i++) {
                 animateSmoke();   
             }
             numSmoke += 1;
-            colorIn -= 1;
-            yPosition -= 1;
-            opacity -= .0000001;
-            drawSmoke = null;
-            radius += .2;
+            
 
             if ((Math.random() * 2) + 1 > 1){
               xPosition += (Math.random() * 1);
@@ -58,18 +94,7 @@
         function drawThirdSmoke() {
             setTimeout(function() {animateSmoke2()}, 2000);
         }
-      function animateSmoke() {
-
-        var canvas = document.getElementById("myDrawing");
-        var c2 = canvas.getContext('2d');
-        c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
-        c2.beginPath();
-        //X, Y, r,
-        
-        c2.arc(Math.random() * 5 + xPosition, Math.random() * 5 + yPosition, radius, 0, 2*Math.PI);
-        c2.fill();
-        c2.closePath();
-      }
+      
         function animateSmoke1() {
 
         var canvas = document.getElementById("myDrawing");
