@@ -11,44 +11,46 @@
 <header>
   <h2>Our House</h2>
 </header>
-<body id="house" onload="interval1; showValue();">
-  <input type="range" min='1' max='100' value="90" onchange="showValue(this.value)">
+<body id="house" onload="interval1">
+  <input type="range" min='1' max='100' value="50" onchange="setInterval(this.value)">
     <canvas id='myDrawing' width='500' height='500'></canvas>
     <script>
 
         var colorIn = 255;
         var opacity = 1;
         var array = [];
-        var xPosition = 280;
-        var yPosition = 160;
-        var xPosition1 = 280;
-        var yPosition1 = 160;
-        var xPosition2 = 280;
-        var yPosition2 = 160;
         var radius = 3;
         var numSmoke = 1;
+        var smokeArray = [];
+        var counter = 50;
+       
 
-        function changeInterval(newInterval) {
+          //temporary set timer to 5000 so it doesn't interrupt the drawing
+          var interval1 = setInterval(function() {drawScene(); smokeObject(); smokeIterator();}, counter);
+
+        //}
+        
+
+                     
+var myFunction = function(){
+    clearInterval(interval);
+    counter *= 10;
+    interval = setInterval(myFunction, counter);
+}
+var interval = setInterval(myFunction, counter);
+        
+        var newInterval = function() {
+            clearInterval(interval1);
+            var newTime = document.getElementById("range").value;
+            interval1 = setInterval(function() {drawScene(); smokeObject(); smokeIterator();}, counter);
             
         }
+        
         function showValue(newValue)
         {
             document.getElementById("range").innerHTML=newValue;
         }
         
-        
-        
-        function myFunction() {
-          var x = document.createElement("INPUT");
-          x.setAttribute("type", "range");
-          document.body.appendChild(x);
-}
-
-
-        var smokeArray = [];
-      //  var interval2 = setInterval(function() {})
-
-
 
         function smokeObject() {
             var smoke = {
@@ -77,68 +79,6 @@
             }
         }
 
-        function animateSmoke() {
-
-
-            var canvas = document.getElementById("myDrawing");
-            var c2 = canvas.getContext('2d');
-            c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
-            c2.beginPath();
-            //X, Y, r,
-
-      }
-
-        //function drawSmoke() {
-          //var canvas = document.getElementById("myDrawing");
-          //var c2 = canvas.getContext('2d');
-
-          //temporary set timer to 5000 so it doesn't interrupt the drawing
-          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 50);
-
-        //}
-
-        function makeSmoke(){
-            for (i = 0; i < numSmoke; i++) {
-                animateSmoke();
-            }
-            numSmoke += 1;
-
-
-            if ((Math.random() * 2) + 1 > 1){
-              xPosition += (Math.random() * 1);
-            }
-
-            else {
-              xPosition -= (Math.random() * 1);
-            }
-
-        }
-        
-
-        function animateSmoke1() {
-
-        var canvas = document.getElementById("myDrawing");
-        var c2 = canvas.getContext('2d');
-        c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
-        c2.beginPath();
-        //X, Y, r,
-
-        c2.arc(Math.random() * 5 + xPosition1, Math.random() * 5 + yPosition1, radius, 0, 2*Math.PI);
-        c2.fill();
-        c2.closePath();
-      }
-        function animateSmoke2() {
-
-        var canvas = document.getElementById("myDrawing");
-        var c2 = canvas.getContext('2d');
-        c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
-        c2.beginPath();
-        //X, Y, r,
-
-        c2.arc(Math.random() * 5 + xPosition2, Math.random() * 5 + yPosition2, radius, 0, 2*Math.PI);
-        c2.fill();
-        c2.closePath();
-      }
 
       function drawScene() {
           nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawDoorSide(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle();drawSideDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
@@ -492,7 +432,7 @@
 <footer>
   <p>Heidema, Justin, A00...... || Gordiyenko, Artur, A00953906</p>
   <ul><p>What we have completed</p>
-      <li><span id="range">0</span></li>
+      <li><span id="range" />0</span></li>
     <li>Point 1:</li>
     <li>Point 2:</li>
   </ul>
