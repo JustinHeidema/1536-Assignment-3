@@ -12,6 +12,7 @@
   <h2>Our House</h2>
 </header>
 <body id="house" onload="interval1">
+  <input type="range" id="myRange" value="90">
     <canvas id='myDrawing' width='500' height='500'></canvas>
     <script>
 
@@ -27,6 +28,12 @@
         var radius = 3;
         var numSmoke = 1;
 
+
+        function myFunction() {
+          var x = document.createElement("INPUT");
+          x.setAttribute("type", "range");
+          document.body.appendChild(x);
+}
 
 
         var smokeArray = [];
@@ -77,7 +84,7 @@
           //var c2 = canvas.getContext('2d');
 
           //temporary set timer to 5000 so it doesn't interrupt the drawing
-          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 1000);
+          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 50);
 
         //}
 
@@ -131,7 +138,7 @@
 
       function drawScene() {
           nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawDoorSide(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle();drawSideDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
-          drawChimneyInside(); drawMainStairs(); drawSideStairs(); drawGrid();
+          drawChimneyInside(); drawMainStairs(); drawSideStairs(); drawGrid(); myFunction();
       }
 
         function nightSky() {
