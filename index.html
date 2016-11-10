@@ -30,7 +30,7 @@
 
 
         var smokeArray = [];
-        var interval2 = setInterval(function() {})
+      //  var interval2 = setInterval(function() {})
 
 
 
@@ -75,7 +75,9 @@
         //function drawSmoke() {
           //var canvas = document.getElementById("myDrawing");
           //var c2 = canvas.getContext('2d');
-          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 50);
+
+          //temporary set timer to 5000 so it doesn't interrupt the drawing
+          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 1000);
 
         //}
 
@@ -128,8 +130,8 @@
       }
 
       function drawScene() {
-          nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
-          drawChimneyInside();
+          nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawDoorSide(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle();drawSideDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
+          drawChimneyInside(); drawMainStairs(); drawSideStairs(); drawGrid();
       }
 
         function nightSky() {
@@ -151,7 +153,7 @@
             c2.lineTo(295, 250);
             c2.lineTo(195, 150);
             c2.lineTo(120, 220);
-            c2.lineTo(135, 371);
+            c2.lineTo(125, 371);
             c2.closePath();
             c2.fill();
             c2.strokeStyle = '#253041';
@@ -173,16 +175,78 @@
             c2.stroke();
         }
 
+        function drawDoorSide() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#96562a';
+            c2.beginPath();
+            c2.moveTo(325, 375);
+            c2.lineTo(325, 325);
+            c2.lineTo(340, 310);
+            c2.lineTo(340, 360);
+            c2.closePath();
+            c2.fill();
+            c2.strokeStyle = '#253041';
+            c2.stroke();
+        }
+
+        function drawMainStairs() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#96562a';
+            c2.beginPath();
+            c2.moveTo(220, 386);
+            c2.lineTo(190, 381);
+            c2.lineTo(189, 386);
+            c2.lineTo(218, 391);
+            c2.closePath();
+            c2.fill();
+            c2.strokeStyle = '#253041';
+            c2.stroke();
+        }
+
+        function drawSideStairs() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#96562a';
+            c2.beginPath();
+            c2.moveTo(325, 375);
+            c2.lineTo(340, 360);
+            c2.lineTo(340, 365);
+            c2.lineTo(330, 375);
+            c2.closePath();
+            c2.fill();
+            c2.strokeStyle = '#253041';
+            c2.stroke();
+        }
+
+        function drawWindowSide() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#e8ea5c';
+            c2.beginPath();
+            c2.moveTo(315, 290);
+            c2.lineTo(315, 255);
+            c2.lineTo(350, 229);
+            c2.lineTo(350, 264);
+            c2.closePath();
+            c2.fill();
+            c2.lineWidth = 3;
+            c2.strokeStyle = '#96562a';
+            c2.stroke();
+
+        }
+
         function drawDoor() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
 
             c2.fillStyle = '#96562a';
             c2.beginPath();
-            c2.moveTo(220, 385);
+            c2.moveTo(220, 386);
             c2.lineTo(220, 333);
             c2.lineTo(190, 330);
-            c2.lineTo(190, 380);
+            c2.lineTo(190, 381);
             c2.closePath();
             c2.fill();
         }
@@ -297,6 +361,15 @@
 
         }
 
+        function drawSideDoorHandle() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = '#ada711';
+            c2.beginPath();
+            c2.arc(330,340,2,0,2*Math.PI);
+            c2.fill();
+        }
+
         function drawChimneyFront() {
             var canvas = document.getElementById("myDrawing");
             var c2 = canvas.getContext('2d');
@@ -353,6 +426,54 @@
             c2.lineWidth = .5;
             c2.strokeStyle = 'black';
             c2.stroke();
+
+        }
+
+        //draws a temporary grid with numbers
+       function drawGrid() {
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            var x = 50;
+            var y = 50;
+            c2.strokeStyle = 'yellow';
+
+            for (i = 0; i < 10; i++) {
+              c2.beginPath();
+              c2.moveTo(x,0);
+              c2.lineTo(x, 500);
+              c2.stroke();
+              x += 50;
+            }
+
+            for (i = 0; i < 10; i++) {
+              c2.beginPath();
+              c2.moveTo(0, y);
+              c2.lineTo(500, y);
+              c2.stroke();
+              y += 50;
+            }
+
+            x = 45;
+            var num = 50;
+            for (i = 0; i < 10; i++) {
+              var n = num.toString();
+              c2.font="13px Georgia";
+              c2.fillStyle='yellow';
+              c2.fillText(n,5,x);
+              x += 50;
+              num += 50;
+            }
+
+            x = 5;
+            var num = 0;
+            for (i = 0; i < 10; i++) {
+              var n = num.toString();
+              c2.font="13px Georgia";
+              c2.fillStyle='yellow';
+              c2.fillText(n,x,15);
+              x += 50;
+              num += 50;
+            }
 
         }
     </script>
