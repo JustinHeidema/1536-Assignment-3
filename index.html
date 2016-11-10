@@ -12,12 +12,12 @@
   <h2>Our House</h2>
 </header>
 <body id="house" onload="interval1; showValue();">
-  <input type="range" min='1' max='100' value="90" onchange="showValue(this.value)">
+  <input type="range" min='20' max='120' value="70" oninput="newInterval(this.value)">
     <canvas id='myDrawing' width='500' height='500'></canvas>
     <script>
 
         var colorIn = 255;
-        var opacity = 0.03;
+        var opacity = 0.025;
         var array = [];
         var xPosition = 280;
         var yPosition = 160;
@@ -36,6 +36,13 @@
             document.getElementById("range").innerHTML=newValue;
         }
 
+
+        function newInterval(newValue) {
+            clearInterval(interval1);
+            newValue = 100 - newValue;
+            interval1 = setInterval(function() {drawScene(); smokeObject(); smokeIterator();}, newValue);
+
+        }
 
 
         function myFunction() {
@@ -61,7 +68,7 @@
         function smokeIterator() {
             for (i = 0; i < smokeArray.length; i++) {
 
-              if (((Math.random() * 2)) > 1){
+             if (((Math.random() * 2)) > 1){
                 smokeArray[i].x += (Math.random() * 2.5);
               }
 
@@ -81,7 +88,6 @@
                 colorIn -= 0;
                 opacity -= 0;
                 drawSmoke = null;
-                radius += 0;
                 smokeArray[i].x += 0.5;
 
 
