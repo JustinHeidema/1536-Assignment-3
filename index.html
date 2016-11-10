@@ -11,8 +11,8 @@
 <header>
   <h2>Our House</h2>
 </header>
-<body id="house" onload="interval1">
-  <input type="range" id="myRange" value="90">
+<body id="house" onload="interval1; showValue();">
+  <input type="range" min='1' max='100' value="90" onchange="showValue(this.value)">
     <canvas id='myDrawing' width='500' height='500'></canvas>
     <script>
 
@@ -28,7 +28,16 @@
         var radius = 3;
         var numSmoke = 1;
 
-
+        function changeInterval(newInterval) {
+            
+        }
+        function showValue(newValue)
+        {
+            document.getElementById("range").innerHTML=newValue;
+        }
+        
+        
+        
         function myFunction() {
           var x = document.createElement("INPUT");
           x.setAttribute("type", "range");
@@ -104,12 +113,7 @@
             }
 
         }
-        function drawSecondSmoke() {
-            setTimeout(function() {animateSmoke1()}, 2000)
-        }
-        function drawThirdSmoke() {
-            setTimeout(function() {animateSmoke2()}, 2000);
-        }
+        
 
         function animateSmoke1() {
 
@@ -138,7 +142,7 @@
 
       function drawScene() {
           nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawDoorSide(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle();drawSideDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
-          drawChimneyInside(); drawMainStairs(); drawSideStairs(); drawGrid(); myFunction();
+          drawChimneyInside(); drawMainStairs(); drawSideStairs(); drawGrid();
       }
 
         function nightSky() {
@@ -488,6 +492,7 @@
 <footer>
   <p>Heidema, Justin, A00...... || Gordiyenko, Artur, A00953906</p>
   <ul><p>What we have completed</p>
+      <li><span id="range">0</span></li>
     <li>Point 1:</li>
     <li>Point 2:</li>
   </ul>
