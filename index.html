@@ -17,7 +17,7 @@
     <script>
 
         var colorIn = 255;
-        var opacity = 1;
+        var opacity = 0.03;
         var array = [];
         var xPosition = 280;
         var yPosition = 160;
@@ -25,19 +25,19 @@
         var yPosition1 = 160;
         var xPosition2 = 280;
         var yPosition2 = 160;
-        var radius = 3;
+        var radius = 10;
         var numSmoke = 1;
 
         function changeInterval(newInterval) {
-            
+
         }
         function showValue(newValue)
         {
             document.getElementById("range").innerHTML=newValue;
         }
-        
-        
-        
+
+
+
         function myFunction() {
           var x = document.createElement("INPUT");
           x.setAttribute("type", "range");
@@ -61,7 +61,16 @@
         function smokeIterator() {
             for (i = 0; i < smokeArray.length; i++) {
 
-                smokeArray[i].y -= 10;
+              if (((Math.random() * 2)) > 1){
+                smokeArray[i].x += (Math.random() * 2.5);
+              }
+
+              else {
+                smokeArray[i].x -= (Math.random() * 2.5);
+              }
+
+                smokeArray[i].y -= (Math.random() * 1.5);
+                //smokeArray[i].x -= (Math.random() * 2.5);
                 var canvas = document.getElementById("myDrawing");
                 var c2 = canvas.getContext('2d');
                 c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
@@ -69,10 +78,12 @@
                 c2.arc(smokeArray[i].x, smokeArray[i].y, radius, 0, 2*Math.PI);
                 c2.fill();
                 c2.closePath();
-                colorIn -= 1;
-                opacity -= .0000001;
+                colorIn -= 0;
+                opacity -= 0;
                 drawSmoke = null;
-                radius += .0002;
+                radius += 0;
+                smokeArray[i].x += 0.5;
+
 
             }
         }
@@ -93,7 +104,7 @@
           //var c2 = canvas.getContext('2d');
 
           //temporary set timer to 5000 so it doesn't interrupt the drawing
-          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 50);
+          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 20);
 
         //}
 
@@ -113,7 +124,7 @@
             }
 
         }
-        
+
 
         function animateSmoke1() {
 
