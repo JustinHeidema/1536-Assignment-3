@@ -6,7 +6,7 @@
 //smoke particle variables
 var colorIn = 255;
 var opacity = 0.025;
-var array = [];
+//var array = [];
 var xPosition = 280;
 var yPosition = 160;
 var xPosition1 = 280;
@@ -17,9 +17,6 @@ var radius = 10;
 var numSmoke = 1;
 
 
-function changeInterval(newInterval) {
-
-}
 function showValue(newValue)
 {
     document.getElementById("range").innerHTML=newValue;
@@ -34,12 +31,6 @@ function newInterval(newValue) {
 
 }
 
-//slider
-function myFunction() {
-  var x = document.createElement("INPUT");
-  x.setAttribute("type", "range");
-  document.body.appendChild(x);
-}
 
 //empty array for smoke particles
 var smokeArray = [];
@@ -65,7 +56,7 @@ function smokeIterator() {
       }
 
         smokeArray[i].y -= (Math.random() * 1.5);
-        //smokeArray[i].x -= (Math.random() * 2.5);
+
         var canvas = document.getElementById("myDrawing");
         var c2 = canvas.getContext('2d');
         c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
@@ -79,21 +70,9 @@ function smokeIterator() {
         smokeArray[i].x += 0.5;
 
 
+
     }
 }
-
-//smoke animation
-function animateSmoke() {
-
-
-    var canvas = document.getElementById("myDrawing");
-    var c2 = canvas.getContext('2d');
-    c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
-    c2.beginPath();
-    //X, Y, r,
-
-}
-
 
 
 //animation timer
@@ -101,48 +80,6 @@ var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator
 
 
 
-function makeSmoke(){
-    for (i = 0; i < numSmoke; i++) {
-        animateSmoke();
-    }
-    numSmoke += 1;
-
-
-    if ((Math.random() * 2) + 1 > 1){
-      xPosition += (Math.random() * 1);
-    }
-
-    else {
-      xPosition -= (Math.random() * 1);
-    }
-
-}
-
-
-function animateSmoke1() {
-
-var canvas = document.getElementById("myDrawing");
-var c2 = canvas.getContext('2d');
-c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
-c2.beginPath();
-//X, Y, r,
-
-c2.arc(Math.random() * 5 + xPosition1, Math.random() * 5 + yPosition1, radius, 0, 2*Math.PI);
-c2.fill();
-c2.closePath();
-}
-function animateSmoke2() {
-
-var canvas = document.getElementById("myDrawing");
-var c2 = canvas.getContext('2d');
-c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
-c2.beginPath();
-//X, Y, r,
-
-c2.arc(Math.random() * 5 + xPosition2, Math.random() * 5 + yPosition2, radius, 0, 2*Math.PI);
-c2.fill();
-c2.closePath();
-}
 
 //draws the house with the smoke animation
 function drawScene() {
