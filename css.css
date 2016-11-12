@@ -4,7 +4,7 @@ html {
 
 #house {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 header {
@@ -13,6 +13,11 @@ footer {
   background-color: teal;
 }
 
-ul li {
+li {
   list-style-type: none;
+}
+
+footer {
+  margin-top: 50px;
+
 }
