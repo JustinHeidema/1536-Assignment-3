@@ -17,9 +17,19 @@
     <script>
 
         var colorIn = 255;
-        var opacity = 1;
+        var opacity = 0.03;
         var array = [];
+<<<<<<< HEAD
         var radius = 3;
+=======
+        var xPosition = 280;
+        var yPosition = 160;
+        var xPosition1 = 280;
+        var yPosition1 = 160;
+        var xPosition2 = 280;
+        var yPosition2 = 160;
+        var radius = 10;
+>>>>>>> a623e95d581e3829063c31be46dfb288be2335dd
         var numSmoke = 1;
         var smokeArray = [];
         var counter = 50;
@@ -31,6 +41,7 @@
         //}
         
 
+<<<<<<< HEAD
                      
 var myFunction = function(){
     clearInterval(interval);
@@ -44,13 +55,34 @@ var interval = setInterval(myFunction, counter);
             var newTime = document.getElementById("range").value;
             interval1 = setInterval(function() {drawScene(); smokeObject(); smokeIterator();}, counter);
             
+=======
+        function changeInterval(newInterval) {
+
+>>>>>>> a623e95d581e3829063c31be46dfb288be2335dd
         }
         
         function showValue(newValue)
         {
             document.getElementById("range").innerHTML=newValue;
         }
+<<<<<<< HEAD
         
+=======
+
+
+
+        function myFunction() {
+          var x = document.createElement("INPUT");
+          x.setAttribute("type", "range");
+          document.body.appendChild(x);
+}
+
+
+        var smokeArray = [];
+      //  var interval2 = setInterval(function() {})
+
+
+>>>>>>> a623e95d581e3829063c31be46dfb288be2335dd
 
         function smokeObject() {
             var smoke = {
@@ -63,7 +95,16 @@ var interval = setInterval(myFunction, counter);
         function smokeIterator() {
             for (i = 0; i < smokeArray.length; i++) {
 
-                smokeArray[i].y -= 10;
+              if (((Math.random() * 2)) > 1){
+                smokeArray[i].x += (Math.random() * 2.5);
+              }
+
+              else {
+                smokeArray[i].x -= (Math.random() * 2.5);
+              }
+
+                smokeArray[i].y -= (Math.random() * 1.5);
+                //smokeArray[i].x -= (Math.random() * 2.5);
                 var canvas = document.getElementById("myDrawing");
                 var c2 = canvas.getContext('2d');
                 c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
@@ -71,14 +112,81 @@ var interval = setInterval(myFunction, counter);
                 c2.arc(smokeArray[i].x, smokeArray[i].y, radius, 0, 2*Math.PI);
                 c2.fill();
                 c2.closePath();
-                colorIn -= 1;
-                opacity -= .0000001;
+                colorIn -= 0;
+                opacity -= 0;
                 drawSmoke = null;
-                radius += .0002;
+                radius += 0;
+                smokeArray[i].x += 0.5;
+
 
             }
         }
 
+<<<<<<< HEAD
+=======
+        function animateSmoke() {
+
+
+            var canvas = document.getElementById("myDrawing");
+            var c2 = canvas.getContext('2d');
+            c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
+            c2.beginPath();
+            //X, Y, r,
+
+      }
+
+        //function drawSmoke() {
+          //var canvas = document.getElementById("myDrawing");
+          //var c2 = canvas.getContext('2d');
+
+          //temporary set timer to 5000 so it doesn't interrupt the drawing
+          var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 20);
+
+        //}
+
+        function makeSmoke(){
+            for (i = 0; i < numSmoke; i++) {
+                animateSmoke();
+            }
+            numSmoke += 1;
+
+
+            if ((Math.random() * 2) + 1 > 1){
+              xPosition += (Math.random() * 1);
+            }
+
+            else {
+              xPosition -= (Math.random() * 1);
+            }
+
+        }
+
+
+        function animateSmoke1() {
+
+        var canvas = document.getElementById("myDrawing");
+        var c2 = canvas.getContext('2d');
+        c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
+        c2.beginPath();
+        //X, Y, r,
+
+        c2.arc(Math.random() * 5 + xPosition1, Math.random() * 5 + yPosition1, radius, 0, 2*Math.PI);
+        c2.fill();
+        c2.closePath();
+      }
+        function animateSmoke2() {
+
+        var canvas = document.getElementById("myDrawing");
+        var c2 = canvas.getContext('2d');
+        c2.fillStyle = "rgba("+colorIn+","+colorIn+","+colorIn+","+opacity+")";
+        c2.beginPath();
+        //X, Y, r,
+
+        c2.arc(Math.random() * 5 + xPosition2, Math.random() * 5 + yPosition2, radius, 0, 2*Math.PI);
+        c2.fill();
+        c2.closePath();
+      }
+>>>>>>> a623e95d581e3829063c31be46dfb288be2335dd
 
       function drawScene() {
           nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawDoorSide(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle();drawSideDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
