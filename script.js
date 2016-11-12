@@ -7,12 +7,7 @@
 var colorIn = 255;
 var opacity = 0.025;
 //var array = [];
-var xPosition = 280;
-var yPosition = 160;
-var xPosition1 = 280;
-var yPosition1 = 160;
-var xPosition2 = 280;
-var yPosition2 = 160;
+
 var radius = 10;
 var numSmoke = 1;
 
@@ -83,8 +78,8 @@ var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator
 
 //draws the house with the smoke animation
 function drawScene() {
-  nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
-  drawChimneyInside(); drawMainStairs(); drawGrave();
+  nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoonGlow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
+  drawChimneyInside(); drawMainStairs(); drawGrave(); drawFence(); drawPath(); drawBat();
 }
 
 function nightSky() {
@@ -109,6 +104,7 @@ function drawHouseFront() {
     c2.lineTo(125, 371);
     c2.closePath();
     c2.fill();
+    c2.lineWidth = 1;
     c2.strokeStyle = '#253041';
     c2.stroke();
 }
@@ -124,6 +120,7 @@ function drawHouseSide() {
     c2.lineTo(295, 250);
     c2.closePath();
     c2.fill();
+    c2.lineWidth = 1;
     c2.strokeStyle = '#253041';
     c2.stroke();
 }
@@ -202,6 +199,9 @@ function drawDoor() {
     c2.lineTo(190, 381);
     c2.closePath();
     c2.fill();
+    c2.lineWidth = 1;
+    c2.strokeStyle = '#253041';
+    c2.stroke();
 }
 
 function drawLeftWindow() {
@@ -217,6 +217,18 @@ function drawLeftWindow() {
     c2.closePath();
     c2.fill();
     c2.lineWidth = 3;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
+
+    c2.moveTo(165, 287);
+    c2.lineTo(165, 249);
+    c2.lineWidth = 2;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
+
+    c2.moveTo(150, 268);
+    c2.lineTo(180, 270);
+    c2.lineWidth = 2;
     c2.strokeStyle = '#96562a';
     c2.stroke();
 }
@@ -236,16 +248,70 @@ function drawRightWindow() {
     c2.lineWidth = 3;
     c2.strokeStyle = '#96562a';
     c2.stroke();
+
+    c2.moveTo(235, 293);
+    c2.lineTo(235, 254);
+    c2.lineWidth = 2;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
+
+    c2.moveTo(220, 273);
+    c2.lineTo(250, 275);
+    c2.lineWidth = 2;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
 }
 
 function drawMoon() {
 
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
-    c2.fillStyle = '';
+    c2.fillStyle = "rgba(254, 250, 204, 1)";
     c2.beginPath();
     c2.arc(100,75,40,0,2*Math.PI);
     c2.fill();
+}
+
+function drawBat() {
+
+    var canvas = document.getElementById("myDrawing");
+    var c2 = canvas.getContext('2d');
+    c2.strokeStyle = 'black';
+    c2.lineWidth = 2;
+    var x3 = 110;
+    var y3 = 80;
+    var radius3 = 8;
+    var startAngle3 = 1.05 * Math.PI;
+    var endAngle3 = 1.95 * Math.PI;
+    c2.beginPath();
+    c2.arc(x3,y3,radius3,startAngle3,endAngle3);
+    c2.stroke();
+
+    var x2 = 125;
+    var y2 = 80;
+    var radius3 = 8;
+    var startAngle3 = 1.05 * Math.PI;
+    var endAngle3 = 1.95 * Math.PI;
+    c2.beginPath();
+    c2.arc(x2,y2,radius3,startAngle3,endAngle3);
+    c2.stroke();
+
+}
+
+function drawMoonGlow() {
+    var radi = 40;
+    var opa = 0.3;
+    var canvas = document.getElementById("myDrawing");
+    var c2 = canvas.getContext('2d');
+    for (i = 0; i < 20; i++) {
+
+      c2.fillStyle = "rgba(255, 255, 255, "+opa+")";
+      c2.beginPath();
+      c2.arc(100,75,radi,0,2*Math.PI);
+      c2.fill();
+      radi+=4;
+      opa -= 0.04;
+    }
 }
 
 function drawGrass() {
@@ -311,6 +377,9 @@ function drawDoorHandle() {
     c2.beginPath();
     c2.arc(213,358,2,0,2*Math.PI);
     c2.fill();
+    c2.lineWidth = 1;
+    c2.strokeStyle = '#253041';
+    c2.stroke();
 
 }
 
@@ -452,8 +521,6 @@ function drawGrave() {
     c2.bezierCurveTo(53, 320, 72, 315, 75, 328);
     c2.fill();
 
-
-
     c2.fillStyle = 'grey';
     c2.beginPath();
     c2.moveTo(50, 333);
@@ -516,6 +583,156 @@ function drawGrave() {
     c2.lineTo(76, 383);
     c2.closePath();
     c2.fill();
+
+
+
+}
+
+function drawFence() {
+    var canvas = document.getElementById("myDrawing");
+    var c2 = canvas.getContext('2d');
+    c2.fillStyle = 'black';
+    c2.beginPath();
+    c2.moveTo(370, 390);
+    c2.lineTo(370, 330);
+    c2.lineTo(372, 327);
+    c2.lineTo(370, 324);
+    c2.lineTo(368, 327);
+    c2.lineTo(370, 330);
+    c2.lineTo(370, 390);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = 2.5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+    c2.fillStyle = 'black';
+    c2.beginPath();
+    c2.moveTo(340, 430);
+    c2.lineTo(340, 370);
+    c2.lineTo(342, 367);
+    c2.lineTo(340, 364);
+    c2.lineTo(338, 367);
+    c2.lineTo(340, 370);
+    c2.lineTo(340, 430);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = 2.5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+    c2.fillStyle = 'black';
+    c2.beginPath();
+    c2.moveTo(310, 470);
+    c2.lineTo(310, 410);
+    c2.lineTo(312, 407);
+    c2.lineTo(310, 404);
+    c2.lineTo(308, 407);
+    c2.lineTo(310, 410);
+    c2.lineTo(310, 470);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = 2.5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+
+
+
+}
+
+function drawPath() {
+    var canvas = document.getElementById("myDrawing");
+    var c2 = canvas.getContext('2d');
+
+    //The first stone
+    c2.fillStyle = 'grey';
+    c2.beginPath();
+    c2.moveTo(210, 400);
+    c2.lineTo(205, 425);
+    c2.lineTo(175, 418);
+    c2.lineTo(180, 395);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = .5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+    c2.fillStyle = 'grey';
+    c2.beginPath();
+    c2.moveTo(205, 425);
+    c2.lineTo(175, 418);
+    c2.lineTo(175, 420);
+    c2.lineTo(205, 427);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = .5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+    //The second stone
+    c2.fillStyle = 'grey';
+    c2.beginPath();
+    c2.moveTo(195, 431);
+    c2.lineTo(190, 455);
+    c2.lineTo(160, 448);
+    c2.lineTo(168, 425);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = .5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+    c2.fillStyle = 'grey';
+    c2.beginPath();
+    c2.moveTo(190, 455);
+    c2.lineTo(160, 448);
+    c2.lineTo(160, 450);
+    c2.lineTo(190, 457);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = .5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+    //The third stone
+    c2.fillStyle = 'grey';
+    c2.beginPath();
+    c2.moveTo(180, 461);
+    c2.lineTo(175, 485);
+    c2.lineTo(145, 478);
+    c2.lineTo(155, 455);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = .5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+    c2.fillStyle = 'grey';
+
+    c2.beginPath();
+    c2.moveTo(175, 485);
+    c2.lineTo(145, 478);
+    c2.lineTo(145, 480);
+    c2.lineTo(175, 487);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = .5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+    c2.fillStyle = 'grey';
+    c2.beginPath();
+    c2.moveTo(180, 461);
+    c2.lineTo(175, 485);
+    c2.lineTo(175, 487);
+    c2.lineTo(181, 463);
+    c2.closePath();
+    c2.fill();
+    c2.lineWidth = .5;
+    c2.strokeStyle = 'black';
+    c2.stroke();
+
+
 
 
 }
