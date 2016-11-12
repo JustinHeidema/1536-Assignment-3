@@ -445,15 +445,15 @@ function drawGrave() {
     c2.lineWidth = .2;
     c2.strokeStyle = 'black';
     c2.stroke();
-    
+
     c2.fillStyle = 'grey';
     c2.beginPath();
     c2.moveTo(50, 334);
     c2.bezierCurveTo(53, 320, 72, 315, 75, 328);
     c2.fill();
-    
-    
-    
+
+
+
     c2.fillStyle = 'grey';
     c2.beginPath();
     c2.moveTo(50, 333);
@@ -465,7 +465,7 @@ function drawGrave() {
     c2.lineWidth = .2;
     c2.strokeStyle = 'black';
     c2.stroke();
-    
+
     c2.fillStyle = 'grey';
     c2.beginPath();
     c2.moveTo(45, 328);
@@ -474,7 +474,7 @@ function drawGrave() {
     c2.lineWidth = .2;
     c2.strokeStyle = 'black';
     c2.stroke();
-    
+
     c2.beginPath();
     c2.moveTo(45, 328);
     c2.bezierCurveTo(52, 315, 72, 315, 75, 328);
@@ -482,7 +482,7 @@ function drawGrave() {
     c2.lineWidth =  .1;
     c2.strokeStyle = 'black';
     c2.stroke();
-    
+
     c2.fillStyle = 'grey';
     c2.beginPath();
     c2.moveTo(50, 333);
@@ -490,11 +490,11 @@ function drawGrave() {
     c2.lineTo(55, 328);
     c2.closePath();
     c2.fill();
-    
+
     c2.fillStyle = 'black';
     c2.font = "10px Georgia"
     c2.fillText("RIP", 54, 345);
-    
+
     c2.beginPath();
     c2.moveTo(50, 334);
     c2.bezierCurveTo(53, 320, 72, 315, 75, 328);
@@ -502,7 +502,7 @@ function drawGrave() {
     c2.lineWidth =  .1;
     c2.strokeStyle = 'black';
     c2.stroke();
-    
+
     c2.fillStyle = '#087c0b';
     c2.beginPath();
     c2.moveTo(50, 386);
@@ -516,6 +516,6 @@ function drawGrave() {
     c2.lineTo(76, 383);
     c2.closePath();
     c2.fill();
-   
- 
+
+
 }
