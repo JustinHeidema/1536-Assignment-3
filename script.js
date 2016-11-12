@@ -219,6 +219,18 @@ function drawLeftWindow() {
     c2.lineWidth = 3;
     c2.strokeStyle = '#96562a';
     c2.stroke();
+    
+    c2.moveTo(165, 287);
+    c2.lineTo(165, 249);
+    c2.lineWidth = 2;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
+    
+    c2.moveTo(150, 268);
+    c2.lineTo(180, 270);
+    c2.lineWidth = 2;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
 }
 
 function drawRightWindow() {
@@ -234,6 +246,18 @@ function drawRightWindow() {
     c2.closePath();
     c2.fill();
     c2.lineWidth = 3;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
+    
+    c2.moveTo(235, 293);
+    c2.lineTo(235, 254);
+    c2.lineWidth = 2;
+    c2.strokeStyle = '#96562a';
+    c2.stroke();
+    
+    c2.moveTo(220, 273);
+    c2.lineTo(250, 275);
+    c2.lineWidth = 2;
     c2.strokeStyle = '#96562a';
     c2.stroke();
 }
