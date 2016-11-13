@@ -1,5 +1,47 @@
 html {
-  background-color: teal;
+  background-color: #aaaaaa;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  line-height: 1.4;
+}
+
+body {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #333333;
+  padding-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+canvas {
+  border-radius: 50px;
+  opacity: 1;
+}
+
+h1 {
+  color: orange;
+}
+
+li {
+  list-style-type: none;
+}
+
+p {
+  color: #aaaaaa;
+}
+
+footer {
+  margin-top: 50px;
+  color: #aaaaaa;
+}
+
+a {
+  color: orange;
+}
+
+h3 {
+  padding-top: 10px;
 }
 
 #house {
@@ -7,17 +49,33 @@ html {
   margin-top: 50px;
 }
 
-header {
-}
-footer {
-  background-color: teal;
-}
-
-li {
-  list-style-type: none;
+#footerTop {
+  width: 800px;
+  height: 80px;
+  float: left;
+  background-color: #333333;
 }
 
-footer {
-  margin-top: 50px;
+#footerRight {
+  width: 400px;
+  height: 150px;
+  float: left;
+  background-color: #333333;
+}
 
+#footerLeft {
+  width: 400px;
+  height: 150px;
+  float: left;
+  background-color: #333333;
+}
+
+#footerBottom {
+  width: 800px;
+  height: 150px;
+  float: left;
+  background-color: #333333;
+  margin-bottom: 30px;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
 }

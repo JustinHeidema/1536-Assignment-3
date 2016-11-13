@@ -1,13 +1,12 @@
 /* Author: Justin Heidema; Artur Gordiyenko
-* Draws a house with animated smoke from its chimney
+*
+*Draws a house with animated smoke from its chimney
 *
 */
 
 //smoke particle variables
 var colorIn = 255;
 var opacity = 0.025;
-//var array = [];
-
 var radius = 10;
 var numSmoke = 1;
 
@@ -18,17 +17,16 @@ function showValue(newValue)
 }
 
 
-//interval change using slider
+//sets the interval and draws the functions
 function newInterval(newValue) {
     clearInterval(interval1);
     newValue = 100 - newValue;
     interval1 = setInterval(function() {drawScene(); smokeObject(); smokeIterator();}, newValue);
-
 }
-
 
 //empty array for smoke particles
 var smokeArray = [];
+
 //smoke particle object, initial location
 function smokeObject() {
     var smoke = {
@@ -73,15 +71,13 @@ function smokeIterator() {
 //animation timer
 var interval1 = setInterval(function() {drawScene();smokeObject(); smokeIterator();}, 20);
 
-
-
-
-//draws the house with the smoke animation
+//function that draws the house with the smoke animation
 function drawScene() {
   nightSky(); drawGrass(); drawHouseFront(); drawHouseSide(); drawDoor(); drawWindowSide(); drawLeftWindow(); drawRightWindow(); drawMoonGlow(); drawMoon(); drawRoof(); drawRoofFront(); drawRoofFront2(); drawDoorHandle(); drawChimneyFront(); drawChimneySide(); drawChimneyTop();
   drawChimneyInside(); drawMainStairs(); drawGrave(); drawFence(); drawPath(); drawBat();
 }
 
+//draws the night sky
 function nightSky() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -90,6 +86,7 @@ function nightSky() {
     c2.fillRect(0, 0, 500, 320);
 }
 
+//draws the front of the house
 function drawHouseFront() {
 
     var canvas = document.getElementById("myDrawing");
@@ -109,6 +106,7 @@ function drawHouseFront() {
     c2.stroke();
 }
 
+//draws the side of the house
 function drawHouseSide() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -125,21 +123,7 @@ function drawHouseSide() {
     c2.stroke();
 }
 
-function drawDoorSide() {
-    var canvas = document.getElementById("myDrawing");
-    var c2 = canvas.getContext('2d');
-    c2.fillStyle = '#96562a';
-    c2.beginPath();
-    c2.moveTo(325, 375);
-    c2.lineTo(325, 325);
-    c2.lineTo(340, 310);
-    c2.lineTo(340, 360);
-    c2.closePath();
-    c2.fill();
-    c2.strokeStyle = '#253041';
-    c2.stroke();
-}
-
+//draws the stairs to the door
 function drawMainStairs() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -155,21 +139,7 @@ function drawMainStairs() {
     c2.stroke();
 }
 
-function drawSideStairs() {
-    var canvas = document.getElementById("myDrawing");
-    var c2 = canvas.getContext('2d');
-    c2.fillStyle = '#96562a';
-    c2.beginPath();
-    c2.moveTo(325, 375);
-    c2.lineTo(340, 360);
-    c2.lineTo(340, 365);
-    c2.lineTo(330, 375);
-    c2.closePath();
-    c2.fill();
-    c2.strokeStyle = '#253041';
-    c2.stroke();
-}
-
+//draws the side window
 function drawWindowSide() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -187,6 +157,7 @@ function drawWindowSide() {
 
 }
 
+//draws the door
 function drawDoor() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -204,6 +175,7 @@ function drawDoor() {
     c2.stroke();
 }
 
+//draws the front left window
 function drawLeftWindow() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -233,6 +205,7 @@ function drawLeftWindow() {
     c2.stroke();
 }
 
+//draws the front right window
 function drawRightWindow() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -262,6 +235,7 @@ function drawRightWindow() {
     c2.stroke();
 }
 
+//draws the moon
 function drawMoon() {
 
     var canvas = document.getElementById("myDrawing");
@@ -272,6 +246,7 @@ function drawMoon() {
     c2.fill();
 }
 
+//draws the bat from the moon
 function drawBat() {
 
     var canvas = document.getElementById("myDrawing");
@@ -298,6 +273,7 @@ function drawBat() {
 
 }
 
+//draws the glow from the moon
 function drawMoonGlow() {
     var radi = 40;
     var opa = 0.3;
@@ -314,6 +290,7 @@ function drawMoonGlow() {
     }
 }
 
+//draws the grass
 function drawGrass() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -323,6 +300,7 @@ function drawGrass() {
 
 }
 
+//draws the main roof
 function drawRoof() {
 
     var canvas = document.getElementById("myDrawing");
@@ -340,6 +318,8 @@ function drawRoof() {
     c2.stroke();
 
 }
+
+//draws the front of the roof
 function drawRoofFront() {
 
     var canvas = document.getElementById("myDrawing");
@@ -356,6 +336,7 @@ function drawRoofFront() {
     c2.strokeStyle = '#3c3146';
     c2.stroke();
 }
+
 function drawRoofFront2() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -370,6 +351,8 @@ function drawRoofFront2() {
     c2.strokeStyle = '#3c3146';
     c2.stroke();
 }
+
+//draws the door handle
 function drawDoorHandle() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -383,15 +366,7 @@ function drawDoorHandle() {
 
 }
 
-function drawSideDoorHandle() {
-    var canvas = document.getElementById("myDrawing");
-    var c2 = canvas.getContext('2d');
-    c2.fillStyle = '#ada711';
-    c2.beginPath();
-    c2.arc(330,340,2,0,2*Math.PI);
-    c2.fill();
-}
-
+//draws the parts of the chimney
 function drawChimneyFront() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -451,54 +426,7 @@ function drawChimneyInside() {
 
 }
 
-//draws a temporary grid with numbers
-function drawGrid() {
-    var canvas = document.getElementById("myDrawing");
-    var c2 = canvas.getContext('2d');
-    var x = 50;
-    var y = 50;
-    c2.strokeStyle = 'yellow';
-
-    for (i = 0; i < 10; i++) {
-      c2.beginPath();
-      c2.moveTo(x,0);
-      c2.lineTo(x, 500);
-      c2.stroke();
-      x += 50;
-    }
-
-    for (i = 0; i < 10; i++) {
-      c2.beginPath();
-      c2.moveTo(0, y);
-      c2.lineTo(500, y);
-      c2.stroke();
-      y += 50;
-    }
-
-    x = 45;
-    var num = 50;
-    for (i = 0; i < 10; i++) {
-      var n = num.toString();
-      c2.font="13px Georgia";
-      c2.fillStyle='yellow';
-      c2.fillText(n,5,x);
-      x += 50;
-      num += 50;
-    }
-
-    x = 5;
-    var num = 0;
-    for (i = 0; i < 10; i++) {
-      var n = num.toString();
-      c2.font="13px Georgia";
-      c2.fillStyle='yellow';
-      c2.fillText(n,x,15);
-      x += 50;
-      num += 50;
-    }
-
-}
-
+//draws the grave
 function drawGrave() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -588,6 +516,7 @@ function drawGrave() {
 
 }
 
+//draws the fence
 function drawFence() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -641,6 +570,7 @@ function drawFence() {
 
 }
 
+//draws the path to the door
 function drawPath() {
     var canvas = document.getElementById("myDrawing");
     var c2 = canvas.getContext('2d');
@@ -731,8 +661,5 @@ function drawPath() {
     c2.lineWidth = .5;
     c2.strokeStyle = 'black';
     c2.stroke();
-
-
-
-
+    
 }
